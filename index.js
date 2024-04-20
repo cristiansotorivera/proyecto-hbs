@@ -1,16 +1,16 @@
 import express from 'express'
 import { engine } from 'express-handlebars';
-import path from 'path'
+import path from 'path';
 
 import { services } from "./data/services.data.js"
 
-const app = express()
+const app = express();
 
 // ruta absoluta
 const __dirname = import.meta.dirname
 
 // middleware
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use('/assets/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
 app.use('/assets/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')))
 
@@ -45,9 +45,10 @@ app.get('/services/:service', (req, res) => {
 
 // Error Handling Middleware for 404
 // Route to handle undefined routes
-/* app.get('*', (req, res) => {
-    res.send('<h2>Sorry, page not found, 💀 error 404 💀</h2>');
-}); */
+// Ruta para manejar el error 404
+app.use((req, res, next) => {
+    res.status(404).render('404', { title: 'Error 404' });
+  });
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
