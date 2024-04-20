@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <!-- Agregar enlaces a los archivos estáticos de CSS y Bootstrap -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <!-- Incluir el navbar -->
+  {{> navbar}}
+
+  <!-- Contenido de la página -->
+  <div class="container mt-4">
+    {{{body}}}
+  </div>
+
+  <!-- Incluir el footer -->
+  {{> footer}}
+
+  <!-- Scripts de Bootstrap y archivos JS -->
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
