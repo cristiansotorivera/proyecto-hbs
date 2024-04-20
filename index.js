@@ -35,7 +35,7 @@ app.get('/services/:service', (req, res) => {
     if (selectedService) {
       res.render('service', { service: selectedService });
     } else {
-      res.status(404).render('404');
+      return res.status(404).render('404');
     }
   });
   
@@ -45,9 +45,9 @@ app.get('/services/:service', (req, res) => {
 
 // Error Handling Middleware for 404
 // Route to handle undefined routes
-app.get('*', (req, res) => {
+/* app.get('*', (req, res) => {
     res.send('<h2>Sorry, page not found, 💀 error 404 💀</h2>');
-});
+}); */
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
